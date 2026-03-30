@@ -3,14 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Primera Web</title>
-    <style>
-        body { font-family: sans-serif; text-align: center; padding: 50px; }
-        h1 { color: #333; }
-    </style>
+    <title>Yoga Kala x Cami</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <img src="assets/img/cabecera/cabecera-yoga.jpg" alt="Kala x Cami">
+    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
-    <h1>¡Hola, Mundo!</h1>
-    <p>Esta es mi primera página web subida desde GitHub.</p>
+
+    <div class="announcement-bar">
+      --Barra de anunciooo-- <a href="#">Learn more</a>
+    </div>
+
+    <header>
+        <div class="logo">Kala</div>
+        <nav>
+            <a href="#">Kala OnLine</a>
+            <a href="#">Estudio</a>
+        </nav>
+        <div class="header-actions">
+            <a href="#" class="login">LOGIN</a>
+            <button class="btn-trial">Texto bóton</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-static">
+            <div class="hero-content">
+                <h1>Move your body, <i>free your mind</i></h1>
+                <p>Mindful Pilates, yoga and meditation for your holistic well-being.</p>
+                <div class="hero-buttons">
+                    <button class="btn-light">ONLINE</button>
+                    <button class="btn-tierra">IN-STUDIO</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="mission-statement">
+            <h2>MYA is your daily sanctuary for holistic well-being. We break away from quick-fix fitness and guide you with mindful classes that bring you back to balance.</h2>
+        </section>
+
+        <section class="carousel-container">
+            <div class="carousel-track-container">
+                <div class="carousel-track">
+                    
+                    <div class="carousel-card active">
+                        <img src="assets/img/carrucel/Instructorado.jpg" alt="Instructorado">
+                        <h3>Movement</h3>
+                        <p>Bases y fundamentos de la práctica de yoga</p>
+                    </div>
+
+                    <div class="carousel-card">
+                        <img src="assets/img/carrucel/Meditación.png" alt="Meditación">
+                        <h3>Meditation</h3>
+                        <p>Intencion, dirección y claridad a travez de la meditación.</p>
+                    </div>
+
+                    <div class="carousel-card">
+                        <img src="assets/img/carrucel/movement.png" alt="Movimiento">
+                        <h3>Our Programs</h3>
+                        <p>Movimiento.... texto sobre esto... no tengo mucha creatividad..</p>
+                    </div>
+
+                    <div class="carousel-card">
+                        <img src="assets/img/carrucel/Sobre nosotros.png" alt="espacioKala">
+                        <h3>Our Programs</h3>
+                        <p>Sobre nuestro espacio.</p>
+                    </div>
+
+                </div>
+            </div>
+            
+            <button class="carousel-button prev">&#10094;</button>
+            <button class="carousel-button next">&#10095;</button>
+        </section>
+    </main>
+
+    <script src="assets/js/carousel.js"></script>
+
 </body>
 </html>
