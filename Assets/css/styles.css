@@ -23,44 +23,27 @@ h1, h2, h3 {
 }
 
 /* NAVEGACIÓN Y HEADER */
-
-/* Barra de Anuncios: Capa superior fija */
 .announcement-bar {
     background-color: #FEFAF5;
     text-align: center;
     padding: 10px;
     font-size: 0.8rem;
     border-bottom: 1px solid rgba(0,0,0,0.05);
-    position: relative;
-    z-index: 20; /* La capa más alta */
 }
+.announcement-bar a { color: var(--texto-oscuro); }
 
-.announcement-bar a {
-    color: var(--texto-oscuro);
-    font-weight: 600;
-}
-
-/* Header: Flotando sobre la imagen de cabecera */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 50px;
-    
-    /* Fondo transparente y posición absoluta para flotar */
-    background-color: transparent; 
-    position: absolute; 
-    top: 50px; /* Ajuste para bajar el menú y no tapar el logo impreso en la foto */
-    left: 0;
-    width: 100%;
-    z-index: 10; /* Capa media */
+    background-color: var(--fondo-principal);
 }
 
 .logo {
     font-size: 2rem;
     font-family: var(--fuente-titulo);
     letter-spacing: 5px;
-    color: var(--texto-oscuro); /* Aseguramos contraste */
 }
 
 nav a, .login {
@@ -70,11 +53,6 @@ nav a, .login {
     font-size: 0.85rem;
     font-weight: 400;
     letter-spacing: 1px;
-    transition: opacity 0.3s;
-}
-
-nav a:hover, .login:hover {
-    opacity: 0.7; /* Pequeño efecto al pasar el mouse */
 }
 
 .btn-trial {
@@ -88,33 +66,49 @@ nav a:hover, .login:hover {
     cursor: pointer;
 }
 
-/* SECCIÓN 1: HÉROE ESTÁTICO (Imagen de fondo a pantalla completa) */
+/* SECCIÓN 1: HÉROE ESTÁTICO */
 .hero-static {
-    height: 100vh; /* Ocupa toda la pantalla */
-    
-    /* Imagen de fondo con un filtro sutil y ruta corregida */
-    background-image: linear-gradient(rgba(0,0,0,0.02), rgba(0,0,0,0.02)), 
-                      url('../Assets/img/Cabecera/Cabecera.png'); 
-    
+    height: 90vh;
+    /* REEMPLAZAR URL CON TU IMAGEN: url('../img/hero-bg.jpg') */
+    background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('https://source.unsplash.com/random/1600x900/?wellness,woman,pilates');
     background-size: cover;
-    background-position: center; /* Centra la imagen */
-    background-attachment: fixed; /* Mantiene el efecto estático al hacer scroll */
-    
+    background-position: center;
+    background-attachment: fixed; /* Esto crea el efecto estático de fondo */
     display: flex;
     justify-content: center;
     align-items: center;
-    
     color: var(--texto-oscuro);
-    position: relative;
-    z-index: 1; /* Capa base (por debajo del menú) */
 }
 
-/* --- SOLUCIÓN: Ocultamos el contenido que tapa la foto --- */
 .hero-content {
-    display: none; /* Esto oculta el h1, p y botones HTML */
+    text-align: center;
 }
 
-/* SECCIÓN 2: MISIÓN (Espaciado y centrado) */
+.hero-content h1 {
+    font-size: 4rem;
+    margin-bottom: 0.5rem;
+}
+.hero-content h1 i { font-style: italic; font-weight: 400; }
+
+.hero-content p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto 2rem auto;
+}
+
+.hero-buttons button {
+    border: none;
+    padding: 15px 35px;
+    border-radius: 50px;
+    margin: 0 10px;
+    cursor: pointer;
+    font-family: var(--fuente-cuerpo);
+}
+
+.btn-light { background-color: rgba(255,255,255,0.8); color: var(--texto-oscuro); }
+.btn-tierra { background-color: rgba(140, 113, 97, 0.8); color: white; }
+
+/* SECCIÓN 2: MISIÓN */
 .mission-statement {
     max-width: 800px;
     margin: 100px auto;
@@ -133,16 +127,16 @@ nav a:hover, .login:hover {
     position: relative;
     max-width: 1200px;
     margin: 0 auto 100px auto;
-    overflow: hidden; /* Oculta las tarjetas que se salen de vista */
+    overflow: hidden; /* Oculta las tarjetas fuera de vista */
 }
 
 .carousel-track {
     display: flex;
-    transition: transform 0.5s ease-in-out; /* Animación suave del carrusel */
+    transition: transform 0.5s ease-in-out; /* Animación suave */
 }
 
 .carousel-card {
-    min-width: 300px; /* Ancho fijo para cada tarjeta */
+    min-width: 300px; /* Ancho fijo para el carrusel */
     margin: 0 20px;
     background-color: var(--fondo-tarjeta);
     border-radius: 20px;
@@ -155,7 +149,7 @@ nav a:hover, .login:hover {
 .carousel-card img {
     width: 100%;
     height: 250px;
-    object-fit: cover; /* Recorta la imagen para que encaje sin estirarse */
+    object-fit: cover;
 }
 
 .carousel-card h3 {
@@ -169,7 +163,7 @@ nav a:hover, .login:hover {
     line-height: 1.6;
 }
 
-/* CONTROLES DEL CARRUSEL (Flechas) */
+/* CONTROLES DEL CARRUSEL */
 .carousel-button {
     position: absolute;
     top: 50%;
@@ -183,17 +177,9 @@ nav a:hover, .login:hover {
     cursor: pointer;
     opacity: 0; /* Invisibles por defecto */
     transition: opacity 0.3s;
-    z-index: 5; /* Por encima de las tarjetas */
 }
 
-.carousel-container:hover .carousel-button {
-    opacity: 1; /* Aparecen al pasar el mouse por encima del carrusel */
-}
+.carousel-container:hover .carousel-button { opacity: 1; } /* Aparecen al hover */
 
-.prev {
-    left: 10px;
-}
-
-.next {
-    right: 10px;
-}
+.prev { left: 10px; }
+.next { right: 10px; }
