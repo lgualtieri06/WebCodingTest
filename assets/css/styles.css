@@ -68,7 +68,7 @@ nav a, .login {
 
 /* SECCIÓN 1: HÉROE ESTÁTICO */
 .hero-static {
-    height: 90vh;
+    height: 80vh;
     /* REEMPLAZAR URL CON TU IMAGEN: url('../img/hero-bg.jpg') */
     background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('../img/cabecera/cabecera.png');
     background-size: cover;
