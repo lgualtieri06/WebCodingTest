@@ -1,4 +1,7 @@
-/* VARIABLES DE PALETA (Organizadas) */
+
+/* =================================================   
+   VARIABLES DE PALETA (Organizadas) 
+   ================================================= */
 :root {
     --fondo-principal: #F7F3F0; /* Arena Suave */
     --fondo-tarjeta: #FEFAF5; /* Crema muy claro */
@@ -8,21 +11,27 @@
     --fuente-cuerpo: 'Montserrat', sans-serif;
 }
 
-/* ESTILOS GLOBALES */
+/* =================================================   
+   ESTILOS GLOBALES 
+   ================================================= */
 body {
     margin: 0;
     background-color: var(--fondo-principal);
     color: var(--texto-oscuro);
     font-family: var(--fuente-cuerpo);
     font-weight: 300;
+    overflow-x: hidden; /* Evita scroll horizontal innecesario */
 }
 
 h1, h2, h3 {
     font-family: var(--fuente-titulo);
     font-weight: 400;
+    margin-top: 0;
 }
 
-/* NAVEGACIÓN Y HEADER */
+/* =================================================   
+   NAVEGACIÓN Y HEADER 
+   ================================================= */
 .announcement-bar {
     background-color: #FEFAF5;
     text-align: center;
@@ -30,7 +39,7 @@ h1, h2, h3 {
     font-size: 0.8rem;
     border-bottom: 1px solid rgba(0,0,0,0.05);
 }
-.announcement-bar a { color: var(--texto-oscuro); }
+.announcement-bar a { color: var(--texto-oscuro); text-decoration: none; }
 
 header {
     display: flex;
@@ -44,6 +53,7 @@ header {
     font-size: 2rem;
     font-family: var(--fuente-titulo);
     letter-spacing: 5px;
+    text-transform: uppercase;
 }
 
 nav a, .login {
@@ -59,29 +69,36 @@ nav a, .login {
     background-color: var(--acento-tierra);
     color: white;
     border: none;
-    padding: 10px 20px;
+    padding: 10px 25px;
     border-radius: 50px;
     font-family: var(--fuente-cuerpo);
     font-size: 0.8rem;
     cursor: pointer;
+    transition: background 0.3s ease;
 }
 
-/* SECCIÓN 1: HÉROE ESTÁTICO */
+.btn-trial:hover { background-color: #765f52; }
+
+/* =================================================   
+   SECCIÓN 1: HÉROE (Optimizado) 
+   ================================================= */
 .hero-static {
     height: 80vh;
-    /* REEMPLAZAR URL CON TU IMAGEN: url('../img/hero-bg.jpg') */
+    /* Recomendación: Usa .webp para mejor rendimiento */
     background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('../img/cabecera/cabecera.png');
     background-size: cover;
     background-position: center;
-    background-attachment: fixed; /* Esto crea el efecto estático de fondo */
+    background-attachment: fixed; /* Efecto Parallax en Desktop */
     display: flex;
     justify-content: center;
     align-items: center;
     color: var(--texto-oscuro);
+    text-align: center;
 }
 
 .hero-content {
-    text-align: center;
+    max-width: 800px;
+    padding: 0 20px;
 }
 
 .hero-content h1 {
@@ -96,19 +113,29 @@ nav a, .login {
     margin: 0 auto 2rem auto;
 }
 
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
 .hero-buttons button {
     border: none;
     padding: 15px 35px;
     border-radius: 50px;
-    margin: 0 10px;
     cursor: pointer;
     font-family: var(--fuente-cuerpo);
+    transition: transform 0.2s ease;
 }
 
-.btn-light { background-color: rgba(255,255,255,0.8); color: var(--texto-oscuro); }
-.btn-tierra { background-color: rgba(140, 113, 97, 0.8); color: white; }
+.hero-buttons button:hover { transform: translateY(-2px); }
 
-/* SECCIÓN 2: MISIÓN */
+.btn-light { background-color: rgba(255,255,255,0.9); color: var(--texto-oscuro); }
+.btn-tierra { background-color: rgba(140, 113, 97, 0.9); color: white; }
+
+/* =================================================   
+   SECCIÓN 2: MISIÓN 
+   ================================================= */
 .mission-statement {
     max-width: 800px;
     margin: 100px auto;
@@ -122,39 +149,41 @@ nav a, .login {
     font-weight: 400;
 }
 
-/* SECCIÓN 3: CARRUSEL */
+/* =================================================   
+   SECCIÓN 3: CARRUSEL (Optimizado) 
+   ================================================= */
 .carousel-container {
     position: relative;
     max-width: 1200px;
     margin: 0 auto 100px auto;
-    overflow: hidden; /* Oculta las tarjetas fuera de vista */
+    overflow: hidden;
 }
 
 .carousel-track {
     display: flex;
-    transition: transform 0.5s ease-in-out; /* Animación suave */
+    transition: transform 0.5s ease-in-out;
 }
 
 .carousel-card {
-    min-width: 300px; /* Ancho fijo para el carrusel */
-    margin: 0 20px;
+    min-width: 300px;
+    margin: 0 15px;
     background-color: var(--fondo-tarjeta);
     border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.03);
-    text-align: left;
-    flex-shrink: 0; /* Evita que las tarjetas se encojan */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    flex-shrink: 0;
 }
 
 .carousel-card img {
     width: 100%;
-    height: 250px;
+    aspect-ratio: 4 / 3; /* Mantiene proporciones uniformes */
     object-fit: cover;
+    display: block;
 }
 
 .carousel-card h3 {
     margin: 20px 20px 10px 20px;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
 }
 
 .carousel-card p {
@@ -163,23 +192,79 @@ nav a, .login {
     line-height: 1.6;
 }
 
-/* CONTROLES DEL CARRUSEL */
 .carousel-button {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: rgba(140, 113, 97, 0.6);
+    background-color: rgba(140, 113, 97, 0.8);
     color: white;
     border: none;
-    font-size: 2rem;
-    padding: 15px;
+    font-size: 1.5rem;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     cursor: pointer;
-    opacity: 0; /* Invisibles por defecto */
-    transition: opacity 0.3s;
+    opacity: 0;
+    transition: opacity 0.3s, background 0.3s;
+    z-index: 10;
 }
 
-.carousel-container:hover .carousel-button { opacity: 1; } /* Aparecen al hover */
+.carousel-container:hover .carousel-button { opacity: 1; }
+.carousel-button:hover { background-color: var(--acento-tierra); }
 
-.prev { left: 10px; }
-.next { right: 10px; }
+.prev { left: 15px; }
+.next { right: 15px; }
+
+/* =================================================   
+   MEDIA QUERIES (Responsividad) 
+   ================================================= */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 20px;
+        gap: 20px;
+    }
+
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    nav a { margin: 0 5px; font-size: 0.8rem; }
+
+    .hero-static {
+        height: 70vh;
+        background-attachment: scroll; /* Mejor performance en móviles */
+    }
+
+    .hero-content h1 { font-size: 2.5rem; }
+    
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero-buttons button { width: 100%; max-width: 280px; }
+
+    .mission-statement { margin: 60px auto; }
+    .mission-statement h2 { font-size: 1.6rem; }
+
+    .carousel-card {
+        min-width: 80%; /* Tarjetas más anchas en móvil */
+    }
+
+    .carousel-button {
+        opacity: 1; /* Siempre visibles en táctil */
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo { font-size: 1.4rem; letter-spacing: 2px; }
+    .hero-content h1 { font-size: 2rem; }
+    .hero-content p { font-size: 1rem; }
+}
