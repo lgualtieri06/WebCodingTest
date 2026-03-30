@@ -70,7 +70,7 @@ nav a, .login {
 .hero-static {
     height: 90vh;
     /* REEMPLAZAR URL CON TU IMAGEN: url('../img/hero-bg.jpg') */
-    background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('https://source.unsplash.com/random/1600x900/?wellness,woman,pilates');
+    background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('../img/cabecera/cabecera.png');
     background-size: cover;
     background-position: center;
     background-attachment: fixed; /* Esto crea el efecto estático de fondo */
