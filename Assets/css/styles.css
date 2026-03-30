@@ -79,7 +79,7 @@ nav a, .login {
 .hero-static {
     height: 100vh; /* Sugerencia: Que ocupe TODA la pantalla para impacto */
     background-image: linear-gradient(rgba(0,0,0,0.05), rgba(0,0,0,0.05)), /* Capa muy sutil */
-    url('../assets/img/Cabecera/Cabecera.png'); 
+    url('../Assets/img/Cabecera/Cabecera.png'); 
     background-size: cover;
     background-position: center; /* Centra la imagen */
     background-attachment: fixed; /* Mantiene el efecto estático */
