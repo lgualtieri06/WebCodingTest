@@ -37,7 +37,16 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 20px 50px;
-    background-color: var(--fondo-principal);
+    
+    /* SOLUCIÓN: Fondo transparente para que se vea la foto detrás */
+    background-color: transparent; 
+    
+    /* SOLUCIÓN: Asegura que el menú esté por ENCIMA de la foto */
+    position: absolute; 
+    top: 50px; /* Ajusta esto (ej. 50px) para bajar el menú y que no tape el logo de la foto */
+    left: 0;
+    width: 100%;
+    z-index: 10; /* Capa superior */
 }
 
 .logo {
@@ -66,19 +75,26 @@ nav a, .login {
     cursor: pointer;
 }
 
-/* SECCIÓN 1: HÉROE ESTÁTICO */
+/* SECCIÓN 1: HÉROE ESTÁTICO - AJUSTES DE DISEÑO */
 .hero-static {
-    height: 90vh;
-    /* REEMPLAZAR URL CON TU IMAGEN: url('../img/hero-bg.jpg') */
-    background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), 
-    url('../Assets/img/Cabecera/Cabecera.png');
+    height: 100vh; /* Sugerencia: Que ocupe TODA la pantalla para impacto */
+    background-image: linear-gradient(rgba(0,0,0,0.05), rgba(0,0,0,0.05)), /* Capa muy sutil */
+    url('../assets/img/Cabecera/Cabecera.png'); 
     background-size: cover;
-    background-position: center;
-    background-attachment: fixed; /* Esto crea el efecto estático de fondo */
+    background-position: center; /* Centra la imagen */
+    background-attachment: fixed; /* Mantiene el efecto estático */
     display: flex;
     justify-content: center;
     align-items: center;
     color: var(--texto-oscuro);
+    position: relative; /* Para manejar capas */
+    z-index: 1; /* Capa base */
+}
+
+/* --- SOLUCIÓN: Ocultamos el contenido que tapa la foto --- */
+.hero-content {
+    display: none; /* Esto oculta el h1, p y botones HTML */
+    /* Así la imagen de Cami y el logo que vienen en la foto se ven perfectos */
 }
 
 .hero-content {
