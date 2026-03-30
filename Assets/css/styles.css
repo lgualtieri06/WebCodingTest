@@ -78,11 +78,11 @@ nav a, .login {
 /* SECCIÓN 1: HÉROE ESTÁTICO - AJUSTES DE DISEÑO */
 .hero-static {
     height: 100vh; /* Sugerencia: Que ocupe TODA la pantalla para impacto */
-    url('../Assets/img/Cabecera/Cabecera.png'); 
     background-image: linear-gradient(rgba(0,0,0,0.05), rgba(0,0,0,0.05)), /* Capa muy sutil */
     background-size: cover;
     background-position: center; /* Centra la imagen */
     background-attachment: fixed; /* Mantiene el efecto estático */
+    url('../Assets/img/Cabecera/Cabecera.png'); 
     display: flex;
     justify-content: center;
     align-items: center;
